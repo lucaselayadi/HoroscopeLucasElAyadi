@@ -1,13 +1,36 @@
-var signs = ["Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer" , "Leo" , "Virgo" , "Libra" , "Scorpio" , "Sagittarius", "Capricorn" ]
+var signs = ["Aquarius", "Pisces", "Aries", "Taurus", "Gemini", "Cancer" , "Leo" , "Virgo" , "Libra" , "Scorpio" , "Sagittarius", "Capricorn" ];
+var pre_message = "you are a";
+var messages = [
+    pre_message + signs[0] ,
+    pre_message + signs[1],
+    pre_message + signs[2] ,
+    pre_message + signs[3],
+    pre_message + signs[4],
+    pre_message + signs[5],
+    pre_message + signs[6],
+    pre_message + signs[7],
+    pre_message + signs[8],
+    pre_message + signs[9],
+    pre_message + signs[10],
+    pre_message + signs[11]
+];
+var images = [];
 function go(){
+    onSubmit();
+}
 
+function onSubmit() {
     var day  = document.getElementById("day").value
     var month  = document.getElementById("month").value
 
-    console.log(getSign(day,month));
-
+    console.log(determineSign(day,month));
+    var userSign = determineSign(day, month);
+    console.log( signs[determineSign(day, month)]);
+    console.log(messages[userSign]);
 }
-function getSign(day, month){
+
+
+function determineSign(day, month){
 //january
 if(month == 0){
     if(day > 31){
